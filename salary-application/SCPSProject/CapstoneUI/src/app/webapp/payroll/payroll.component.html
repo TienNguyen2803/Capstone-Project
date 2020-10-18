@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body class="bg-theme bg-theme9">
+
+    <!-- start loader -->
+    <!-- <div id="pageloader-overlay" class="visible incoming">
+        <div class="loader-wrapper-outer">
+            <div class="loader-wrapper-inner">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div> -->
+    <!-- end loader -->
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <app-container h1_title='m4'></app-container>
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <!--Start Dashboard Content-->
+
+                <div class="row">
+                    <!-- Tạo nội dung vào đây -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header" (click)="sendEmail()">
+                                <i class="fa fa-table"></i> DANH SÁCH BẢNG LƯƠNG
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="payroll-datatable" class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>THỜI GIAN</th>
+                                                <th>QUYẾT ĐỊNH</th>
+                                                <th>NGÀY TÍNH LƯƠNG</th>
+                                                <th>NGÀY TRẢ LƯƠNG</th>
+                                                <th>TRẠNG THÁI</th>
+                                                <!-- <th>CHI TIẾT</th> -->
+                                                <th>NẠP LƯƠNG</th>
+                                                <th>CÔNG KHAI</th>
+                                                <th>TẢI XUỐNG</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                        <tfoot>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--End Row-->
+                <!--End Dashboard Content-->
+                <!--start overlay-->
+                <div class="overlay toggle-menu"></div>
+                <!--end overlay-->
+
+            </div>
+            <!-- End container-fluid-->
+
+        </div>
+        <!--End content-wrapper-->
+        <!--Start Back To Top Button-->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!--End Back To Top Button-->
+
+
+    </div>
+    <!--End wrapper-->
+    
+    <!-- Modal publish Payroll -->
+    <!-- <div class="modal fade" id="modal-publishPayroll">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 600px;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Công Khai Bảng Lương</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        <i class="fa fa-times"></i>
+                        Hủy</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" (click)="publishPayroll()">
+                        <i class="fa fa-check-square-o"></i>
+                        Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Modal download Payroll -->
+    <!-- <div class="modal fade" id="modal-downloadPayroll">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 600px;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tải Xuống Bảng Lương</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        <i class="fa fa-times"></i>
+                        Hủy</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" (click)="downloadPayroll()">
+                        <i class="fa fa-check-square-o"></i>
+                        Xác nhận</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</body>
+
+</html>

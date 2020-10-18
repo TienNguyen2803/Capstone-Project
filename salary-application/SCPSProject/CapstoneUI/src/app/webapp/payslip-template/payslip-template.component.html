@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NHAP HANG</title>
+</head>
+
+<body>
+    <app-container h1_title='m6'></app-container>
+    <div id="content" class="content-wrapper">
+        <div class="container-fluid">
+            <h4 class="title">{{header}} {{template}} <span></span></h4>
+            <div class="row">
+                <div id='left-block' class="col-7">
+                    <ckeditor style="width: 90%;" [(ngModel)]="model.editorData" [editor]="Editor" (ready)="onReady($event)" (change)="onChange($event)"></ckeditor>
+                    <h5 style="margin-top: 25px;">Quyết Định : {{document}}</h5>
+                </div>
+                <div id='right-block' class="col-5">
+                    <div class="card form-group">
+                        <div class="card-header">
+                            <p> Danh sách đầu lương</p>
+                            <div class="input-block">
+                                <i class="fa fa-search" style="cursor: pointer;font-size: 20px !important;" aria-hidden="true"></i>
+                                <input id="txtSearchField" style="margin-left: 5px;border-left: 1px;border-radius: 5px;" placeholder="Tìm kiếm" (keyup)="SearchField($event)" />
+                            </div>
+                        </div>
+                        <div class="card-body" style="overflow: auto;height:345px;">
+                            <p *ngFor="let item of _listField" class="field"><b>{{item}}</b></p>
+                        </div>
+                    </div>
+                    <div class="form-group tool-block block-1">
+                        <input type="file" id="upload-doc" class="d-none" name="upload-doc" (change)="onSubmitFile($event)" />
+                        <button id="upload-payslip" type="button" class="btn btn-light">
+                            <label for="upload-doc" style="margin-bottom:0">Thêm Phiếu Lương Mới</label>
+                        </button>
+                        <button id="upload" data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-light" value="">Phiếu Lương Có Sẵn</button>
+                        <button id="btn-create" (click)="SaveContentEditor()" type="button" class="btn btn-light" value="">{{buttonText}}</button>
+                        <button (click)="BackURL()" type="button" class="btn btn-light" value="">Hủy</button>
+                    </div>
+                    <div class="form-group tool-block block-2">
+
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class=" modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" style="font-size: 24px;" id="exampleModalLabel">Phiếu lương có sẵn</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true ">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" style="height: 500px;overflow-y: scroll;">
+                                <div id="select-block" class="form-group">
+                                    <select id="doc-selected" class="form-control" (change)="Change($event.target.value)">
+                                        <option value=" ">Chọn Quyết Định</option>
+                                        <option *ngFor="let item of listDocument ">{{item.Code}}</option>                                    
+                                    </select>
+                                    <select class="form-control" (change)="ReviewTemplate($event.target.value)">
+                                        <option value=" ">Chọn mẫu phiếu lương</option>
+                                        <option *ngFor="let item of Templates" value="{{item.TemplateUrl}}">{{item.TemplateUrl}}</option>                                       
+                                    </select>
+                                </div>
+                                <div id="html-viewer" class="form-group "></div>
+                                <!-- <table id="pop-up-table " border="1 " style="font-family: arial, sans-serif;border-collapse: collapse; width: 100%;visibility: hidden; ">
+                                    <tr>
+                                        <th>Template</th>
+                                        <th>Xem trước</th>
+                                    </tr>
+                                    <tr *ngFor="let item of ">
+                                        <td>{{item.TemplateUrl}}</td>
+                                        <td><i id='trigger-modal' style="cursor: pointer;margin-left: 10px !important;font-size: 30px !important; " data-toggle="modal " data-target="#demo " (click)="ReviewTemplate(item.TemplateUrl) " class="fa fa-eye
+                    view-btn "></i></td>
+                                    </tr>
+                                </table> -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                <button type="button" data-dismiss="modal" (click)="CloneTemplate()" class="btn btn-primary">Sao chép</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <!-- <div class="modal fade " id="demo " tabindex="-1 " role="dialog " aria-labelledby="demo " aria-hidden="true ">
+                    <div class="modal-dialog " role="document ">
+                        <div class="modal-content ">
+                            <div class="modal-body ">
+                                <div id="html-viewer ">
+
+                                </div>
+                            </div>
+                            <div class="modal-footer ">
+                                <button type="button " class="btn btn-secondary " data-dismiss="modal ">Hủy</button>
+                                <button type="button " class="btn btn-primary ">Tiếp tục</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="row">
+                <div class="col-12">
+                    <div class="form-group tool-block block-1">
+                        <input type="file" id="upload-doc" class="d-none" name="upload-doc" (change)="onSubmitFile($event)" />
+                        <button id="upload-payslip" type="button" class="btn btn-light">
+                            <label for="upload-doc" style="margin-bottom:0">Tải lên Phiếu Lương Mới</label>
+                        </button>
+                        <button id="upload" data-toggle="modal" data-target="#exampleModal" type="button" class="btn btn-light" value="">Phiếu Lương Có Sẵn</button>
+                        <button id="btn-create" (click)="SaveContentEditor()" type="button" class="btn btn-light" value="">{{buttonText}}</button>
+                        <button (click)="BackURL()" type="button" class="btn btn-light" value=""></button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>

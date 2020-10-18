@@ -1,0 +1,590 @@
+*:focus {
+    outline: none;
+}
+ 
+/* STROLL */
+
+/* width */
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+	background: #303e45;
+	/* border-radius: 5px; */
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+/* ANIMATION */
+
+@keyframes animatezoom {
+	from {
+		transform: scale(0)
+	}
+	to {
+		transform: scale(1)
+	}
+}
+
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0
+	}
+	to {
+		top: 0;
+		opacity: 1
+	}
+}
+
+@keyframes animateleft {
+	from {
+		left: -300px;
+		opacity: 0
+	}
+	to {
+		left: 0;
+		opacity: 1
+	}
+}
+
+/* FONT FOR ENTIRE app */
+
+body {
+	font-family: "Verdana", "Geneva", sans-serif;
+	color: var(--color-d5);
+	margin: 0;
+}
+
+/* Variables */
+
+:root {
+	/* MAIN */
+	--app-height: 100%;
+	--app-width: 100%;
+	--sideBar-height: 100%;
+	--sideBar-width: 12%;
+	--topBar-height: 8%;
+	--topBar-width: calc(var(--app-width) - var(--sideBar-width));
+	--topBar-title-width: calc(var(--topBar-width) - var(--topBar-systemButtons));
+	--topBar-systemButtons-width: 200px;
+	--sectionBar-height: 40px;
+	--sectionBar-width: calc(var(--app-width) - var(--sideBar-width));
+	--mainContent-height: calc(var(--app-height) - var(--topBar-height) - var(--sectionBar-height));
+	--mainContent-widght: calc(var(--app-width) - var(--sideBar-width));
+	--color-l5: #f5f7f8;
+	--color-l4: #dfe5e8;
+	--color-l3: #becbd2;
+	--color-l2: #9eb1bb;
+	--color-l1: #7d97a5;
+	--color-d1: #57707d;
+	--color-d2: #4d636f;
+	--color-d3: #435761;
+	--color-d4: #3a4b53;
+	--color-d5: #303e45;
+	--colorInDark: #fff;
+	--colorInLight: rgb(0, 0, 0);
+	--ast-color-green: #4CAF50;
+	--ast-color-red: #ff9800;
+	--ast-color-yellow: #f44336;
+}
+
+/* MAIN COMPONENTS */
+
+/************************************************************************************************************************************/
+
+/* App */
+
+.ast-app {
+	height: var(--app-height);
+	width: var(--app-width);
+	/* border-radius: 50px; */
+	overflow: auto;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 10px 100px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Side bar */
+
+.ast-sideBar {
+	height: var(--sideBar-height);
+	width: var(--sideBar-width);
+	float: left;
+}
+
+.ast-sideBar p {
+	margin: 20px;
+	margin-left: 30px;
+	width: auto;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+.ast-sideBarActive {
+	opacity: 1 !important;
+	font-weight: bold;
+}
+
+/* Top bar */
+
+.ast-topBar {
+	height: var(--topBar-height);
+	width: var(--topBar-width);
+	float: right;
+}
+
+.ast-topBar-title {
+	height: var(--topBar-height);
+	width: var(--topBar-title-width);
+	float: left;
+}
+
+.ast-topBar-title h1 {
+	margin: 0;
+	padding: 29px 0px 28px 5px;
+}
+
+.ast-topBar-systemButtons {
+	height: var(--topBar-height);
+	width: var(--topBar-systemButtons-width);
+	float: right;
+}
+
+.ast-topBar-systemButtons i {
+	margin-top: 35px;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+/* Section Bar */
+
+.ast-sectionBar {
+	height: var(--sectionBar-height);
+	width: var(--sectionBar-width);
+	margin-top: var(--topBar-height);
+	margin-left: var(--sideBar-width)
+}
+
+.ast-sectionBar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.ast-sectionBar li {
+	float: left;
+}
+
+/* .ast-sectionBar a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 11px 16px 10px 16px;
+	text-decoration: none;
+	font-weight: bold;
+} */
+
+.ast-sectionBarActive {
+	color: black !important;
+	background-color: var(--color-l5);
+}
+
+/* Main content */
+
+.ast-mainContent {
+	height: var(--mainContent-height);
+	width: var(--mainContent-widght);
+	margin-left: var(--sideBar-width);
+	overflow: auto;
+}
+
+.ast-backward {
+	height: 114px;
+	width: 70px;
+	float: left;
+}
+
+.ast-backward i {
+	cursor: pointer;
+}
+
+/* Layout components */
+
+.ast-firstHalf {
+	display: block;
+	float: left;
+}
+
+.ast-secondHalf {
+	display: block;
+	float: right;
+}
+
+.ast-header, .ast-body, .ast-footer, .ast-subHeader, .ast-subBody {
+	display: block;
+}
+
+/* TABLE */
+
+/* Normal table */
+
+.ast-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	display: table;
+	table-layout: fixed;
+	width: inherit;
+}
+
+.ast-table th, .ast-table td {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.ast-table th {
+	background-color: var(--color-d5);
+	color: var(--colorInDark);
+	vertical-align: middle;
+}
+
+.ast-table td {
+	background-color: var(--color-l4);
+}
+
+/* Info table */
+
+.ast-infoTable {
+	float: left;
+	table-layout: fixed;
+	border-collapse: collapse;
+	border-spacing: 0;
+	cursor: default;
+}
+
+.ast-infoTable td {
+	padding: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.ast-tableCover {
+	display: block;
+}
+
+.ast-greenRow td {
+	background-color: var(--ast-color-green);
+	color: white;
+}
+
+.ast-redRow td {
+	background-color: var(--ast-color-red);
+	color: white;
+}
+
+.ast-yellowRow td {
+	background-color: var(--ast-color-yellow);
+	color: white;
+}
+
+.ast-l3Row td {
+	background-color: var(--color-l3);
+	color: var(--colorInLight);
+}
+
+/* Large table 
+ ...52px...
+...46px...
+...52px */
+
+.ast-largeTable {
+	font-size: 14px;
+}
+
+.ast-largeTable th {
+	padding: 18px 10px 12px 10px;
+}
+
+.ast-largeTable td {
+	padding: 12px 8px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ast-largeTable td:first-child, .ast-largeTable th:first-child {
+	padding-left: 20px;
+}
+
+.ast-largeTable td:last-child, .ast-largeTable th:last-child {
+	padding-right: 20px;
+}
+
+/* Medium table 
+ ...42px...
+...43px...
+...42px */
+
+.ast-mediumTable {
+	font-size: 12px;
+}
+
+.ast-mediumTable th {
+	padding: 13px 4px 10px 4px;
+}
+
+.ast-mediumTable td {
+	padding: 12px 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ast-mediumTable td:first-child, .ast-mediumTable th:first-child {
+	padding-left: 10px;
+}
+
+.ast-mediumTable td:last-child, .ast-mediumTable th:last-child {
+	padding-right: 5px;
+}
+
+/* SMALL TABLE
+.ast-smallTable {
+	font-size: 12px;
+}
+.ast-smallTable th {
+	padding: 6px;
+}
+.ast-smallTable td {
+	padding: 6px;
+} */
+
+/************************************************************************************************************************************/
+
+/* COMPONENTS */
+
+/* Button */
+
+.ast-button {
+	padding: 10px 18px;
+	border-radius: 12px;
+	margin: 0;
+	font-size: 16px;
+	font-weight: bold;
+	border: none;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap;
+	user-select: none
+}
+
+.ast-button a {
+	text-decoration: none;
+    color: white;
+}
+
+.ast-table .ast-button {
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 10px;
+}
+
+.ast-table .ast-iconButton {
+	font-size: 20px;
+}
+
+
+/* Input */
+
+.ast-input {
+	padding: 10px;
+	border-radius: 8px;
+	display: inline-block;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* Search */
+
+.ast-search {
+	margin: 38px 0 0 25px;
+	width: 300px;
+	padding: 10px;
+	border-radius: 8px;
+	font-weight: bold;
+	display: block;
+	float: left;
+	font-family: Verdana, Geneva, sans-serif;;
+	cursor: pointer;
+}
+
+.ast-timeFilter {
+	width: 300px;
+	height: 35px;
+	display: block;
+	padding: 0;
+	margin: 38px 0 0 50px;
+	background-color: white;
+	float: left;
+	border-left-color: rgb(238, 238, 238);
+	border-left-style: inset;
+	border-left-width: 2px;
+	border-right-color: rgb(238, 238, 238);
+	border-right-style: inset;
+	border-right-width: 2px;
+	border-top-color: rgb(238, 238, 238);
+	border-radius: 8px;
+	border-top-style: inset;
+	border-top-width: 2px;
+	cursor: pointer;
+}
+
+/* Label */
+
+.ast-label {
+	font-size: inherit;
+	padding: 2px;
+	/* border-radius: 8px; */
+	margin: 0;
+}
+
+/* Pagination */
+
+.ast-pagination {
+	display: block;
+	margin: auto;
+	max-width: 320px;
+}
+
+.ast-pagination p {
+	text-align: center;
+	margin: 0;
+	margin-right: 30px;
+	font-size: 12px;
+}
+
+.ast-pagination a {
+	border: none;
+	display: inline-block;
+	vertical-align: middle;
+	text-decoration: none;
+	white-space: normal;
+	text-align: center;
+	cursor: pointer;
+	color: black;
+	border-radius: 8px;
+	padding: 7px 14px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.ast-paginationActive {
+	color: var(--colorInDark)!important;
+	background-color: var(--color-d4);
+}
+
+/* Bagde */
+
+.ast-badge {
+	padding: 10px;
+	display: block;
+	/* border-radius: 10px; */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: default;
+}
+
+.ast-closeableBadge {
+	padding: 10px;
+	display: block;
+	/* border-radius: 10px; */
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: left;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	float: left;
+}
+
+.ast-closeableBadge i {
+	display: block;
+	float: right;
+}
+
+/* Editable */
+
+.ast-editable {
+	height: inherit;
+	width: inherit;
+	overflow: hidden;
+}
+
+.ast-editable p {
+	vertical-align: middle;
+	font-size: 18px;
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	border-bottom: 1px dashed #303e45;
+}
+
+/* Image */
+
+.ast-image {
+	height: 380px;
+	width: 285px;
+	/* width: 380px;
+	height: 285px; */
+	display: block;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+	/* border-radius: 30px; */
+	
+}
+
+/************************************************************************************************************************************/
+
+/* HOVER */
+
+.ast-sideBar i:hover:not(.ast-sideBarActive) {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.ast-sectionBar a:hover:not(.ast-sectionBar-active) {
+	opacity: 0.5;
+	cursor: pointer;
+}
+.ast-iconButton:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.ast-clickable table tr:hover:not(:nth-child(2)) {
+	opacity: 0.5;
+}
+
+.ast-clickable table tr:not(:nth-child(2)) {
+	cursor: pointer !important;
+}

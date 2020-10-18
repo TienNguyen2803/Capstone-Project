@@ -1,0 +1,150 @@
+.ast-theme-l5 {
+	color: #000 !important;
+	background-color: #f5f7f8 !important
+}
+
+.ast-theme-l4 {
+	color: #000 !important;
+	background-color: #dfe5e8 !important
+}
+
+.ast-theme-l3 {
+	color: #000 !important;
+	background-color: #becbd2 !important
+}
+
+.ast-theme-l2 {
+	color: #000 !important;
+	background-color: #9eb1bb !important
+}
+
+.ast-theme-l1 {
+	color: #fff !important;
+	background-color: #7d97a5 !important
+}
+
+.ast-theme-d1 {
+	color: #fff !important;
+	background-color: #57707d !important
+}
+
+.ast-theme-d2 {
+	color: #fff !important;
+	background-color: #4d636f !important
+}
+
+.ast-theme-d3 {
+	color: #fff !important;
+	background-color: #435761 !important
+}
+
+.ast-theme-d4 {
+	color: #fff !important;
+	background-color: #3a4b53 !important
+}
+
+.ast-theme-d5 {
+	color: #fff !important;
+	background-color: #303e45 !important
+}
+
+.ast-d4 {
+	color: #3a4b53;
+}
+
+.ast-theme-light {
+	color: #000 !important;
+	background-color: #f5f7f8 !important
+}
+
+.ast-theme-dark {
+	color: #fff !important;
+	background-color: #303e45 !important
+}
+
+.ast-theme-action {
+	color: #fff !important;
+	background-color: #303e45 !important
+}
+
+.ast-theme {
+	color: #fff !important;
+	background-color: #607d8b !important
+}
+
+.ast-text-theme {
+	color: #607d8b !important
+}
+
+.ast-border-theme {
+	border-color: #607d8b !important
+}
+
+.ast-hover-theme:hover {
+	color: #fff !important;
+	background-color: #607d8b !important
+}
+
+.ast-hover-text-theme:hover {
+	color: #607d8b !important
+}
+
+.ast-hover-border-theme:hover {
+	border-color: #607d8b !important
+}
+
+.ast-theme-green {
+	color: #fff!important;
+	background-color: #4CAF50!important;
+}
+
+.ast-theme-red {
+	color: #fff!important;
+	background-color: #f44336!important;
+}
+
+.ast-theme-yellow {
+	color: #fff!important;
+	background-color: #ff9800!important;
+}
+
+.ast-theme-blue {
+	color: white !important;
+	background-color: #2196F3 !important;
+}
+
+.ast-d5 {
+	color: #303e45;
+}
+
+.ast-d4 {
+	color: #3a4b53;
+}
+
+.ast-d3 {
+	color: #435761;
+}
+
+.ast-d2 {
+	color: #4d636f;
+}
+
+.ast-d1 {
+	color: #57707d;
+}
+
+.ast-green {
+	color: #4CAF50;
+}
+
+.ast-yellow {
+	color: #ff9800;
+}
+
+.ast-red {
+	color: #f44336;
+}
+
+.ast-blue {
+	color: #2196F3;
+}

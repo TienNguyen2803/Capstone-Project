@@ -1,0 +1,114 @@
+diff a/SCPSProject/CapstoneUI/Controllers/DocumentController.cs b/SCPSProject/CapstoneUI/Controllers/DocumentController.cs	(rejected hunks)
+@@ -5,11 +6,111 @@
++using BusinessLogic.Define;
++using DataAccess;
++using DataAccess.Entities;
++using Microsoft.AspNetCore.Mvc;
+ using System;
+ using System.Collections.Generic;
++using System.IO;
+ using System.Linq;
++using System.Net.Http.Headers;
+ using System.Threading.Tasks;
+ 
+ namespace CapstoneUI.Controllers
+ {
+-  public class DocumentController : _BaseController
++  [Route("api/document")]
++  [ApiController]
++  public class DocumentController : ControllerBase
+   {
++    private readonly IDocumentService _documentService;
++
++    public DocumentController(IDocumentService documentService)
++    {
++      _documentService = documentService;
++    }
++
++
++    // GET api/values
++    [HttpGet]
++    public IActionResult Get()
++    {
++      List<Document> documents = _documentService.GetAll().ToList();
++      return Ok(documents);
++    }
++
++
++    // GET api/values/5
++    [HttpGet("{code}")]
++    public ActionResult<Document> Get(string code)
++    {
++      Document document = _documentService.Get(x => x.Code == code);
++
++      return document;
++    }
++
++    // POST api/values
++    [HttpPost, DisableRequestSizeLimit]
++    public IActionResult Post()
++    {
++      try
++      {
++        var file = Request.Form.Files[0];
++        string Code = Request.Form["Code"];
++        DateTimeOffset SignDate = DateTimeOffset.Parse(Request.Form["SignDate"]);
++        DateTimeOffset ApplyDate = DateTimeOffset.Parse(Request.Form["ApplyDate"]);
++        int NoticeDay = Int32.Parse(Request.Form["NoticeDay"]);
++        string Description = Request.Form["Description"];
++        int FormulaId = Int32.Parse(Request.Form["FormulaId"]);
++        var folderName = Path.Combine("Resources", "DocumentTemplate");
++        var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
++
++        if (file.Length > 0)
++        {
++          var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
++          var fullPath = Path.Combine(pathToSave, fileName);
++          var dbPath = Path.Combine(folderName, fileName);
++          using (var stream = new FileStream(fullPath, FileMode.Create))
++          {
++            file.CopyTo(stream);
++          }
++
++          Document document = new Document();
++          document.Code = Code;
++          document.ApplyDate = ApplyDate;
++          document.SignDate = SignDate;
++          document.NoticeDay = NoticeDay;
++          document.Description = Description;
++          document.FormulaId = FormulaId;
++          document.DocumentUrl = folderName+"\\"+ fileName;
++          document.Status = true;
++          _documentService.Create(document);
++          return Ok();
++        }
++        else
++        {
++          return BadRequest("Không có file hình ảnh ");
++        }
++
++      }
++      catch (Exception ex)
++      {
++        return BadRequest(ex);
++      }
++
++    }
++
++    // PUT api/values/5
++    [HttpPut]
++    public void Put([FromBody] Document document)
++    {
++      _documentService.Update(document);
++    }
++
++    // DELETE api/values/5
++    [HttpDelete("{code}")]
++    public void Delete(string code)
++    {
++      Document document = _documentService.Get(x => x.Code == code);
++      document.Status = false;
++      _documentService.Update(document);
++    }
+   }
+ }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NHAP HANG</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+</head>
+
+<body>
+    <app-container h1_title='m6'></app-container>
+    <div id="content" class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row" style="justify-content: center;margin-right: 10%;">
+                        <h3>Quản lý mẫu phiếu lương</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <!-- <table id="payroll-datatable" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Mẫu Phiếu Lương</th>
+                                            <th>Quyết Định</th>
+                                            <th>TRẠNG THÁI</th>
+                                            
+                                            <th> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of listAllTemplate | paginate: { itemsPerPage: 10, currentPage: p } ; index as indexId ">
+                                            <td>{{item.TemplateUrl}} </td>
+                                            <td>{{item.Code}}</td>
+                                            <td *ngIf="item.Status">Bản chính</td>
+                                            <td *ngIf="!item.Status">Bản nháp</td>
+                                            <td>
+                                                <i attr.data-id="#exampleModal{{indexId}}" style="cursor: pointer;margin-left: 10px !important;font-size: 30px !important;" data-toggle="modal" (click)="ReviewTemplate(item.Code,item.TemplateUrl, indexId)" class="fa fa-eye view-btn"></i>
+
+                                                <i style="cursor: pointer;margin-left: 10px !important;font-size: 30px !important;" (click)="SetStatus(item.TemplateUrl,item.Code)" class="fa fa-check"></i>
+
+                                                <i style="cursor: pointer;margin-left: 10px !important;font-size: 30px !important;" [routerLink]="['/payslip-template']" [queryParams]="{url:url,template:item.TemplateUrl,document:item.Code}" class="fa fa-edit fa-2x ast-yellow"></i>
+                                            </td>
+                                            <div class="modal fade" id="exampleModal{{indexId}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content" style="width: 1000px;height: 800px;">
+                                                        <div class="modal-header" style="display: contents !important;">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle" style="margin-left: 20px;font-weight: bold;margin-top: 20px;">Phiếu lương : {{item.TemplateUrl}}</h5>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="viewer" id="html-viewer{{indexId}}">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" id="btn-review{{indexId}}" style="visibility: hidden;" class="btn btn-secondary" (click)="ViewDataDemo(item.Code,item.TemplateUrl)">Xem với dữ liệu mẫu</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="SetStatus(item.TemplateUrl,item.Code)">Sử dụng</button>
+                                                            <button type="button" class="btn btn-primary" [routerLink]="['/payslip-template']" [queryParams]="{url:url,template:item.TemplateUrl,document:item.Code}">Chỉnh Sửa</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="4" style="text-align: center;">
+                                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table> -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <i class="fa fa-table"></i> Danh Sách Mẫu Phiếu Lương
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table id="payroll-datatable" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Mẫu Phiếu Lương</th>
+                                                        <th>Quyết Định</th>
+                                                        <th>TRẠNG THÁI</th>
+                                                        <th> </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                                <tfoot>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="col-4">
+                    <div class="row" style="margin-top: 10%;">
+                        <h5>Tìm kiếm <i style="cursor: pointer;margin-left: 10px;font-size: 20px;" (click)="showListTemplate()" class="fa fa-search" aria-hidden="true"></i>
+                            <i id="refresh" style="cursor: pointer;margin-left: 10px;font-size: 20px;visibility: hidden;" (click)="refresh()" class="fa fa-refresh" aria-hidden="true"></i>
+                        </h5>
+                    </div>
+                    <div class="row">
+                        <p id="search" style="font-size: 16px;color: #aaaaaa;visibility: hidden;">{{documentName}}</p>
+
+                    </div>
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

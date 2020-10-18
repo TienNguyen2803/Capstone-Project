@@ -1,0 +1,12 @@
+D:\Capstone\salary-application\SCPSProject\DataAccess\bin\Debug\netcoreapp2.2\DataAccess.deps.json
+D:\Capstone\salary-application\SCPSProject\DataAccess\bin\Debug\netcoreapp2.2\DataAccess.runtimeconfig.json
+D:\Capstone\salary-application\SCPSProject\DataAccess\bin\Debug\netcoreapp2.2\DataAccess.runtimeconfig.dev.json
+D:\Capstone\salary-application\SCPSProject\DataAccess\bin\Debug\netcoreapp2.2\DataAccess.dll
+D:\Capstone\salary-application\SCPSProject\DataAccess\bin\Debug\netcoreapp2.2\DataAccess.pdb
+D:\Capstone\salary-application\SCPSProject\DataAccess\obj\Debug\netcoreapp2.2\DataAccess.AssemblyInfoInputs.cache
+D:\Capstone\salary-application\SCPSProject\DataAccess\obj\Debug\netcoreapp2.2\DataAccess.AssemblyInfo.cs
+D:\Capstone\salary-application\SCPSProject\DataAccess\obj\Debug\netcoreapp2.2\DataAccess.csproj.CoreCompileInputs.cache
+D:\Capstone\salary-application\SCPSProject\DataAccess\obj\Debug\netcoreapp2.2\DataAccess.dll
+D:\Capstone\salary-application\SCPSProject\DataAccess\obj\Debug\netcoreapp2.2\DataAccess.pdb
+D:\Capstone\salary-application\SCPSProject\DataAccess\obj\Debug\netcoreapp2.2\DataAccess.genruntimeconfig.cache
+D:\Capstone\salary-application\SCPSProject\DataAccess\obj\Debug\netcoreapp2.2\DataAccess.csprojAssemblyReference.cache

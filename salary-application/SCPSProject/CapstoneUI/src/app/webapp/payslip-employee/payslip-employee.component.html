@@ -1,0 +1,67 @@
+<!-- new -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body class="bg-theme bg-theme9">
+
+    <!-- start loader -->
+    <!-- <div id="pageloader-overlay" class="visible incoming">
+        <div class="loader-wrapper-outer">
+            <div class="loader-wrapper-inner">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div> -->
+    <!-- end loader -->
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <app-container h1_title='m7' ></app-container>
+
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    
+                    <div id="template-block" class="col-8 hidden" >
+                            <h3 style="text-align: center;margin: 15px 0 ;">Thông tin Phiếu lương Tháng {{month}} Năm {{year}}</h3>
+                            <div id="head">
+    
+                            </div>
+                            <div id="body">
+                            </div>
+                            <div id="footer"></div>
+                        
+                    </div>
+                    <div class="col-4" style="margin-top: 2%;">
+                        <h4 style="text-align: center;">Danh sách phiếu lương</h4> 
+                         <select id="pay-month" class="form-control" style="width: 200px !important;margin-left: 25%;">
+                                <option value="{{item}}" *ngFor="let item of listPayroll" >
+                                    {{item}}
+                                </option> 
+                         </select>                               
+                        <br>
+                        
+                    <br>
+                        <button class="bn bttn-light form-control" style=" padding: 10px;width: 80px !important;margin-left: 25%;" (click)="GetPayslip()">
+                            Xem
+                        </button>
+                    </div>
+                   
+                </div>
+                
+              
+            </div>
+        </div>
+        
+
+
+    </div>
+    <!--End wrapper-->
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+@import '../../../assets/css/component.css';
+
+.ast-header {
+    height: var(--header-height);
+    width: var(--header-width) + 20px;
+    margin: 0;
+}
+
+.ast-body {
+    height: var(--body-height) - 100px;
+    width: var(--body-width) + 20px;
+    margin: 0;
+}
+
+.ast-footer {
+    height: var(--footer-height);
+    width: var(--footer-width) + 20px;
+}
+
+:host ::ng-deep #body {
+    max-height: 600px;
+    overflow-y: auto;
+    box-shadow: 2px 2px 5px #ced4da;
+}
+
+:host ::ng-deep #body::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+:host ::ng-deep #body::-webkit-scrollbar-track {
+background: #ffffff;
+}
+
+/* Handle */
+:host ::ng-deep #body::-webkit-scrollbar-thumb {
+background: #1d1c1ce5;
+}
+
+/* Handle on hover */
+:host ::ng-deep #body::-webkit-scrollbar-thumb:hover {
+background: #1d1c1ce5;
+}
+
+:host ::ng-deep #body ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;  
+}
+
+:host ::ng-deep #body ul li.column-name {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+    width: 100%;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgb(44, 81, 100);
+}
+
+:host ::ng-deep #body ul li .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+    width: 100%;
+}
+
+:host ::ng-deep #body .item {
+    background-color: rgb(58, 75, 83);
+}
+
+:host ::ng-deep #body .item.odd {
+    background-color: rgb(67, 87, 97);
+}
+
+:host ::ng-deep #head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+:host ::ng-deep #head span {
+    font-size: 20px;
+    font-weight: 600;;
+}
+
+:host ::ng-deep #footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+:host ::ng-deep #footer .total {
+    font-size: 18px;
+    font-weight: 600;
+}

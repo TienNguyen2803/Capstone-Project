@@ -1,0 +1,5 @@
+@import '../../../assets/css/component.css';
+.mat-stepper-horizontal {
+    margin-top: 8px;
+    background-color: inherit;
+}

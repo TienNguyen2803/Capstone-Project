@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body class="bg-theme bg-theme9">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <app-container h1_title='m2'></app-container>
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <!--Start Dashboard Content-->
+
+                <div class="row">
+                    <!-- Tạo nội dung vào đây -->
+                    <p style="margin-left: 30px; margin-top: 32px;width: 100%;font-size: 24px; color: whitesmoke;">
+                        <b>Chi tiết Quyết Định:</b> {{documentDetail.Code}}
+                        <i class="fa fa-file" (click)="openViewDocModal()"> </i>
+                    </p>
+                    <div class="row-body" style="margin-left: 2%; font-size: 16px;">
+                        <div style="float: left; width: 45%;">
+                            <h4 class="row-label" style="margin-top: 40px;">Ngày ký</h4>
+                            <p *ngIf="documentDetail.SignDate != null">{{util.formatDate(documentDetail.SignDate)}}</p>
+                            <h4 class="row-label" style="margin-top: 40px;">Ngày tính lương</h4>
+                            <p>Ngày {{documentDetail.CloseDay}} hàng tháng</p>
+                            <!-- show formula -->
+                            <h4 class="row-label" style="margin-top: 40px;">Công thức lương
+                            </h4>
+                            <ng-container *ngIf="documentDetail.Formula != null">
+                                <p title="documentDetail.Formula">{{documentDetail.Formula}}</p>
+                            </ng-container>
+                            <ng-container *ngIf="documentDetail.Formula == null">
+                                <p>Chưa có công thức lương tương ứng</p>
+                            </ng-container>
+                            <h4 class="row-label" style="margin-top: 40px;">Mẫu Phiếu Lương
+                                <i style="cursor: pointer;" [routerLink]="['/payslip-template']"
+                                    [queryParams]="{document:documentName,url:url,DocumentId:documentId}"
+                                    class="fa fa-plus-square" aria-hidden="true"></i>
+                                <i style="cursor: pointer;margin-left: 10px;" (click)="showListTemplate()"
+                                    class="fa fa-th-list" aria-hidden="true"></i>
+                            </h4>
+                            <p>{{templateDefault}}</p>
+                        </div>
+                        <div style="float: left; width: 52%;">
+
+                            <h4 class="row-label" style="margin-top: 40px;">Ngày áp dụng</h4>
+                            <p *ngIf="documentDetail.SignDate != null">{{util.formatDate(documentDetail.ApplyDate)}}</p>
+
+                            <h4 class="row-label" style="margin-top: 40px;">Hạn tính lương</h4>
+                            <p>Ngày {{documentDetail.Deadline}} hàng tháng</p>
+
+                            <h4 class="row-label" style="margin-top: 40px;">Mô tả</h4>
+
+                            <ng-container
+                                *ngIf="documentDetail.Description != null && documentDetail.Description != ''">
+                                <p>{{documentDetail.Description}}</p>
+                            </ng-container>
+                            <ng-container
+                                *ngIf="documentDetail.Description == null || documentDetail.Description == ''">
+                                <p>Chưa có mô tả</p>
+                            </ng-container>
+                        </div>
+
+                    </div>
+                </div>
+                <!--End Row-->
+
+
+
+
+                <button id='trigger-modal' class="btn btn-primary d-none" data-toggle="modal" data-target="#exampleModal"></button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class=" modal-header " style="display: contents !important; ">
+                                <h3 class="modal-title " id="exampleModalLongTitle" style="margin-left: 20px;font-weight: bold;margin-top: 20px; ">Phiếu lương : {{TemplateUrl}}
+                                </h3>
+                            </div>
+                            <div class="modal-body ">
+                                <div id="html-viewer">
+
+                                </div>
+                            </div>
+                            <div class="modal-footer ">
+                                <!-- <button type="button " id="btn-review " style="visibility: hidden;background-color: #aaa !important;border-color: #aaa !important " class="btn btn-secondary " (click)="ViewDataDemo(documentName,TemplateUrl) ">Xem với dữ liệu mẫu</button> -->
+                                <button type="button" class="btn btn-primary " style="background-color: #aaa !important;border-color: #aaa !important " data-dismiss="modal " (click)="SetStatus(TemplateUrl) ">Sử dụng </button>
+                                <button type="button" class="btn btn-primary " style="background-color: #aaa !important;border-color: #aaa !important; " [routerLink]="[ '/payslip-template'] " [queryParams]="{template:TemplateUrl,url:urlEdit,document:documentName,DocumentId:documentId} ">Chỉnh
+                                    Sửa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Dashboard Content-->
+                <!--start overlay-->
+                <div class="overlay toggle-menu"></div>
+                <!--end overlay-->
+
+            </div>
+            <!-- End container-fluid-->
+
+        </div>
+        <!--End content-wrapper-->
+        <!--Start Back To Top Button-->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!--End Back To Top Button-->
+
+
+    </div>
+    <!--End wrapper-->
+
+</body>
+
+</html>

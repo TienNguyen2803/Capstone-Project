@@ -1,0 +1,213 @@
+/************************************************************************************************************************************/
+/* ALERT */
+.ast-alertContent {
+	--alert-height: 200px;
+	--alert-width: 400px;
+
+	--header-height: 50px;
+	--body-height: calc(var(--alert-height) - var(--header-height));
+}
+.ast-alert {
+	z-index:3;
+	display:none;
+	position:fixed;
+	left:0;top:0;
+	height: var(--app-height);
+	width: var(--app-width);
+	overflow:auto;
+	background-color:rgb(0,0,0);
+	background-color:rgba(0,0,0,0.4);
+}
+.ast-alertContent {
+	width: var(--alert-width);
+	height: var(--alert-height);
+	margin:auto;
+	border-radius: 20px;
+	vertical-align: middle;
+	overflow: auto;
+	padding:0;
+	outline:0;
+	animation:animatezoom 0.6s;
+	box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+	margin-top: 10%;
+}
+
+.ast-alertHeader {
+	height: var(--header-height);
+	width: inherit;
+}
+.ast-alertBody {
+	height: var(--body-height);
+	width: inherit;
+	display: table-cell; 
+	vertical-align: middle;
+}
+/* Alert components */
+.ast-alertHeader h3 {
+	margin: 0;
+	padding: 12px 0 13px 20px;
+	display: inline-block;
+}
+.ast-alertHeader span {
+	color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 15px 20px 15px 0;
+}
+.ast-alertBody p {
+	margin: 0;
+	text-align: center;
+}
+/************************************************************************************************************************************/
+/* MODAL */
+.ast-modalContent {
+	--header-height: 60px;
+	--footer-height: 80px;
+
+	--modal-width: 400px;
+	--modal-maxHeight: 850px;
+	--modal-maxWidth: 600px;
+}
+.ast-modal {
+	z-index:2;
+	display:none;
+	position:fixed;
+	left:0;top:0;
+	height: var(--app-height);
+	width: var(--app-width);
+	overflow:auto;
+	background-color:rgb(0,0,0);
+	background-color:rgba(0,0,0,0.4);
+}
+.ast-modalContent {
+	margin:auto;
+	background-color:#fff;
+	border-radius: 20px;
+	vertical-align: middle;
+	overflow: auto;
+	padding:0;
+	outline:0;
+	animation:animatezoom 0.6s;
+	box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+	width: var(--modal-width);
+	max-height: var(--modal-maxHeight);
+	margin-top: 80px;
+}
+.ast-modalHeader {
+	height: var(--header-height);
+	width: var(--modal-width)
+}
+.ast-modalBody {
+	width: var(--modal-width);
+}
+.ast-modalFooter {
+	height: var(--footer-height);
+	width: var(--modal-width)
+}
+
+/* Modal components */
+/* modalHeader */
+.ast-modalHeader h2 {
+	margin:0;
+	text-align: center;
+	padding-top: 14px;
+}
+.ast-modalHeader i {
+	border:none;
+	display:inline-block;
+	padding:16px 16px;
+	vertical-align:middle;
+	overflow:hidden;
+	text-decoration:none;
+	text-align:center;
+	cursor:pointer;
+	white-space:nowrap
+}
+/* modalBody */
+.ast-modalBody input,
+.ast-modalBody select {
+	display: block;
+	margin:auto;
+	margin-top: 10px;
+	min-width: 60%;
+}
+.ast-modalBody .ast-label {
+	margin-left: 20px;
+}
+.ast-modalBody .ast-label:not(:first-child) {
+	margin-top: 30px;
+}
+.ast-modalBody .ast-label:first-child {
+	padding-top:30px;
+}
+/* modalFooter */
+.ast-modalFooter button {
+	margin-top: 21px;
+	margin-right: 10px;
+	float: right;
+}
+.ast-modalFooter button:first-child {
+	margin-right: 20px;
+}
+/************************************************************************************************************************************/
+/* FUNCTION */
+.ast-function {
+	--function-height: calc(var(--app-height) - 90px);
+	--function-width: calc(var(--app-width) - 340px);
+
+	--header-height: 10%;
+	--header-width: var(--function-width);
+
+	--body-height: 75%;
+	--body-width: var(--function-width);
+
+	--footer-height: 10%;
+	--footer-width: var(--function-width);
+}
+.ast-function {
+	width: var(--function-width);
+	height: var(--function-height);
+	border-radius: 30px;
+	box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19);
+	z-index:2;
+	display:none;
+	position:fixed;
+	left:0;top:0;
+	overflow: auto;
+	padding:0;
+	outline:0;
+	margin: 4% 12%;
+	margin-left: 14%;
+	animation:animateleft 0.4s;
+}
+.ast-functionHeader {
+	height: var(--header-height);
+	width: 100%;
+}
+.ast-functionBody {
+	height: calc(var(--body-height)); /*Minus padding space */
+	width: 95%;
+	padding-top: 20px;
+}
+.ast-functionFooter {
+	height: var(--footer-height);
+	width: 96%;
+}
+/* Function components */
+.ast-functionHeader h2 {
+	margin:0;
+	text-align: center;
+	padding-top: 23px;
+}
+.ast-functionFooter button {
+	margin-top: 5px;
+	margin-right: 10px;
+	float: right;
+}
+.ast-functionFooter button:first-child {
+	margin-right: 15px;
+}

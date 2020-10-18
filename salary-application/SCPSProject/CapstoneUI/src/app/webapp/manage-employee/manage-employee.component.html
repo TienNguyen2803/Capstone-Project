@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body class="bg-theme bg-theme9">
+
+    <!-- start loader -->
+    <!-- <div id="pageloader-overlay" class="visible incoming">
+        <div class="loader-wrapper-outer">
+            <div class="loader-wrapper-inner">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div> -->
+    <!-- end loader -->
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <app-container h1_title='m4'></app-container>
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <!--Start Dashboard Content-->
+
+                <div class="row">
+                    <!-- Tạo nội dung vào đây -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-table"></i> DANH SÁCH BẢNG LƯƠNG
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered" style="overflow-x: auto; display: block;">
+                                    <thead>
+                                        <th>STT</th>
+                                        <th>Mã</th>
+                                        <th>Tên</th>
+                                        <th>Giới tính</th>
+                                        <th>Điện thoại</th>
+                                        <th>Email</th>
+                                        <th>Ngày bắt đầu</th>
+                                        <th>Quyền hạn</th>
+                                    </thead>
+                                    <tbody>
+                                        <ng-container *ngFor="let employee of emps; index as i">
+                                            <tr>
+                                                <td>{{i+1}}</td>
+                                                <td>{{employee.emp.Code}}</td>
+                                                <td>{{employee.emp.Fullname}}</td>
+                                                <td>{{employee.emp.Gender}}</td>
+                                                <td>{{employee.emp.Phone}}</td>
+                                                <td>{{employee.emp.Email}}</td>
+                                                <td>{{util.formatDate(employee.emp.StartDate)}}</td>
+                                                <td>
+                                                    <select #role (change)="setRole(role.value)" class="form-control"
+                                                        style="width: 290px;">
+
+                                                        <option value="1">Kế toán trưởng</option>
+                                                        <option value="2">Kế toán</option>
+                                                        <option value="3">Nhân viên</option>
+                                                        <option value="4">Kế toán</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                                <br>
+                                <button style="" class="btn btn-light">
+                                    Thay đổi thông tin
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!--End Row-->
+                <!--End Dashboard Content-->
+                <!--start overlay-->
+                <div class="overlay toggle-menu"></div>
+                <!--end overlay-->
+
+            </div>
+            <!-- End container-fluid-->
+
+        </div>
+        <!--End content-wrapper-->
+        <!--Start Back To Top Button-->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!--End Back To Top Button-->
+
+
+    </div>
+    <!--End wrapper-->
+
+</body>
+
+</html>

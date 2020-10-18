@@ -1,0 +1,24 @@
+<!-- SUCCESSFUL ALERT -->
+<div id="ast-alt-2" class="ast-alert" style="display: block;">
+    <div class="ast-alertContent">
+        <div class="ast-alertHeader ast-theme-green">
+            <h3>THAO TÁC THÀNH CÔNG</h3>
+            <span onclick="document.getElementById('ast-alt-2').style.display='none'"
+                (click)="onNoClick()">&times;</span>
+        </div>
+        <div class="ast-alertBody ast-theme-l5">
+            <p>{{data.alt_value}}</p>
+        </div>
+    </div>
+</div>
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+    <p>What's your favorite animal?</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.animal">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->

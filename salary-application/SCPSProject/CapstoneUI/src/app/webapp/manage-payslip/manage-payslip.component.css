@@ -1,0 +1,292 @@
+:host ::ng-deep .ck-editor__editable_inline {
+    height: 445px;
+    border: 1px solid #000000;
+}
+
+:host ::ng-deep #content {
+    min-height: 100vh;
+}
+
+:host ::ng-deep body {
+    background-image: linear-gradient(45deg, #29323c, #485563);
+}
+
+:host ::ng-deep .content-wrapper {
+    padding-bottom: 0px !important;
+}
+
+:host ::ng-deep .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+:host ::ng-deep #panel {
+    visibility: hidden;
+}
+
+:host ::ng-deep .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+:host ::ng-deep div.dataTables_info {
+    color: #ffffff;
+}
+
+:host ::ng-deep .upload-btn-wrapper input[type=file] {
+    font-size: 10px;
+    position: absolute;
+    left: 0;
+    height: 30x;
+    margin-top: 15px;
+    top: 0;
+    opacity: 0;
+}
+
+:host ::ng-deep form select {
+    font-size: 20px;
+    border: 1px solid #CCC;
+    min-height: 34px;
+    width: 40vh;
+    border-radius: 5px;
+}
+
+:host ::ng-deep form select option {
+    background-color: #9ca2a9;
+    border-radius: 5px;
+}
+
+:host ::ng-deep .viewer {
+    overflow: auto;
+    height: 600px;
+    background-color: #ffffff;
+}
+
+:host ::ng-deep .viewer * {
+    color: #000000;
+}
+
+:host ::ng-deep .viewer table {
+    width: 100%;
+}
+
+:host ::ng-deep .viewer table td {
+    border: 1px solid #000000;
+}
+
+
+/* CAUTION: Internet Explorer hackery ahead */
+
+ :host ::ng-deep form select::-ms-expand {
+    display: none;
+    /* Remove default arrow in Internet Explorer 10 and 11 */
+}
+
+:host ::ng-deep .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, .85);
+}
+
+:host ::ng-deep .table.align-items-center td,
+.table.align-items-center th {
+    vertical-align: middle;
+}
+
+:host ::ng-deep .table thead th {
+    font-size: .72rem;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+}
+
+:host ::ng-deep .table-bordered {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+:host ::ng-deep .table-flush td,
+.table-flush th {
+    border-right: 0;
+    border-left: 0;
+}
+
+:host ::ng-deep .table td,
+.table th {
+    white-space: nowrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+:host ::ng-deep .table-bordered td,
+.table-bordered th {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+:host ::ng-deep .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, .20);
+    color: #fff;
+}
+
+:host ::ng-deep .table th {
+    font-weight: 600;
+}
+
+:host ::ng-deep .table-responsive {
+    white-space: nowrap;
+}
+
+:host ::ng-deep .table .thead-primary th {
+    color: #fff;
+    background-color: #14abef;
+    border-color: #14abef;
+}
+
+:host ::ng-deep .table .thead-secondary th {
+    color: #fff;
+    background-color: #d13adf;
+    border-color: #d13adf;
+}
+
+:host ::ng-deep .table .thead-success th {
+    color: #fff;
+    background-color: #02ba5a;
+    border-color: #02ba5a;
+}
+
+:host ::ng-deep .table .thead-danger th {
+    color: #fff;
+    background-color: #f5365c;
+    border-color: #f5365c;
+}
+
+:host ::ng-deep .table .thead-warning th {
+    color: #fff;
+    background-color: #fba540;
+    border-color: #fba540;
+}
+
+:host ::ng-deep .table .thead-info th {
+    color: #fff;
+    background-color: #03d0ea;
+    border-color: #03d0ea;
+}
+
+:host ::ng-deep .table .thead-dark th {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+}
+
+:host ::ng-deep .table .thead-light th {
+    color: #495057;
+    background-color: rgba(255, 255, 255, .125);
+    border-color: rgba(255, 255, 255, .125);
+}
+
+:host ::ng-deep .table-primary {
+    color: #fff;
+    background-color: #14abef;
+}
+
+:host ::ng-deep .table-primary td,
+.table-primary th,
+.table-primary thead th {
+    border-color: rgba(244, 245, 250, 0.15);
+}
+
+:host ::ng-deep .table-secondary {
+    color: #fff;
+    background-color: #d13adf;
+}
+
+:host ::ng-deep .table-secondary td,
+.table-secondary th,
+.table-secondary thead th {
+    border-color: rgba(244, 245, 250, 0.30);
+}
+
+:host ::ng-deep .table-success {
+    color: #fff;
+    background-color: #02ba5a;
+}
+
+:host ::ng-deep .table-success td,
+.table-success th,
+.table-success thead th {
+    border-color: rgba(244, 245, 250, 0.30);
+}
+
+:host ::ng-deep .table-danger {
+    color: #fff;
+    background-color: #f5365c;
+}
+
+:host ::ng-deep .table-danger td,
+.table-danger th,
+.table-danger thead th {
+    border-color: rgba(244, 245, 250, 0.30);
+}
+
+:host ::ng-deep .table-warning {
+    color: #fff;
+    background-color: #fba540;
+}
+
+:host ::ng-deep .table-warning td,
+.table-warning th,
+.table-warning thead th {
+    border-color: rgba(244, 245, 250, 0.30);
+}
+
+:host ::ng-deep .table-info {
+    color: #fff;
+    background-color: #03d0ea;
+}
+
+:host ::ng-deep .table-info td,
+.table-info th,
+.table-info thead th {
+    border-color: rgba(244, 245, 250, 0.30);
+}
+
+:host ::ng-deep .table-dark {
+    color: #fff;
+    background-color: #000000;
+}
+
+:host ::ng-deep .table-dark td,
+.table-dark th,
+.table-dark thead th {
+    border-color: rgba(244, 245, 250, 0.15);
+}
+
+:host ::ng-deep .table-light {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.14);
+}
+
+:host ::ng-deep .table-light td,
+.table-light th,
+.table-light thead th {
+    border-color: rgba(221, 222, 222, 0.22);
+}
+
+:host ::ng-deep .table-active,
+.table-active>td,
+.table-active>th {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+:host ::ng-deep .td-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+    color: #000000;
+    border-spacing: 0;
+}
+
+table td {
+    padding: 5px 10px;
+    width: 100px;
+    border: 1px solid #000000 !important;
+}
+
+table img {
+    width: auto;
+    height: auto;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+table span {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}

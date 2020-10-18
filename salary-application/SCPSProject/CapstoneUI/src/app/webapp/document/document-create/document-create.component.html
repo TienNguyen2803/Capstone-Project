@@ -1,0 +1,419 @@
+<!-- new -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body class="bg-theme bg-theme9">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <app-container h1_title='m2'></app-container>
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <!--Start Dashboard Content-->
+
+                <div class="row">
+                    <mat-horizontal-stepper [linear]="isLinearStepper" (selectionChange)="triggerEventStep($event)"
+                        labelPosition="bottom" style="background: inherit;" #stepper>
+
+                        <!-- config icon -->
+                        <ng-template matStepperIcon="edit" let-index="index">
+                            {{index + 1}}
+                        </ng-template>
+
+                        <ng-template matStepperIcon="done" let-index="index">
+                            {{index + 1}}
+                        </ng-template>
+
+                        <!-- Custom icon with a context variable. -->
+                        <ng-template matStepperIcon="number" let-index="index">
+                            {{index + 1}}
+                        </ng-template>
+                        <!-- config icon -->
+
+                        <!-- step Nhập thông tin -->
+                        <mat-step [completed]="checkStepperArr[0]">
+                            <ng-template matStepLabel>Nhập Thông Tin</ng-template>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group" style="float: left; width: 49%;">
+                                        <label for="input-1">Số hiệu</label>
+                                        <input [(ngModel)]="documentToCreate.Code" type="text" class="form-control"
+                                            id="input-1">
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%; margin-left: 2%;">
+                                        <label for="input-8">File quyết định</label>
+                                        <input (change)="onFileChange($event.target.files)" class="form-control"
+                                            type="file" id="input-8">
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%;">
+                                        <label for="input-5">Ngày tính lương</label>
+                                        <input [(ngModel)]="documentToCreate.CloseDay" type="number"
+                                            class="form-control" id="input-5">
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%; margin-left: 2%;">
+                                        <label for="input-6">Hạn tính lương</label>
+                                        <input [(ngModel)]="documentToCreate.Deadline" type="number"
+                                            class="form-control" id="input-6">
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%;">
+                                        <label for="input-3">Ngày ký</label>
+                                        <input [(ngModel)]="documentToCreate.SignDate" type="text" class="form-control"
+                                            bsDatepicker [maxDate]="thisDate" [bsConfig]="{ 
+                                            isAnimated: true,
+                                            adaptivePosition: true,
+                                            dateInputFormat: 'DD/MM/YYYY', 
+                                            containerClass: 'theme-default'
+                                        }">
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%; margin-left: 2%;">
+                                        <label for="input-4">Ngày áp dụng</label>
+                                        <input [(ngModel)]="documentToCreate.ApplyDate" type="text" class="form-control"
+                                            bsDatepicker [minDate]="thisDate" [bsConfig]="{ 
+                                            isAnimated: true,
+                                            adaptivePosition: true,
+                                            dateInputFormat: 'DD/MM/YYYY', 
+                                            containerClass: 'theme-default'
+                                        }">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="input-7">Mô tả</label>
+                                        <div>
+                                            <textarea [(ngModel)]="documentToCreate.Description" rows="4"
+                                                class="form-control" id="input-7" style="width: 100%;">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <button (click)="validateStep1(stepper)" mat-button class="btn btn-success">Tiếp
+                                    Tục</button>
+                            </div>
+                        </mat-step>
+
+                        <!-- step Tạo công thức -->
+                        <mat-step [completed]="checkStepperArr[1]">
+                            <ng-template matStepLabel>Tạo Công Thức</ng-template>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div style="padding-top: 5px;margin-left: 10px;margin-right: 5px; ">
+                                            Thực nhận =
+                                        </div>
+                                        <ng-select2 id="formula0" [disabled]="formulaDisabled[0]"
+                                            [options]="options(0,1)">
+                                        </ng-select2>
+
+                                        <ng-container *ngFor="let cc of selectedList2; index as i">
+                                            <span id="tooltip{{i}}" class="tooltiptext"></span>
+                                            <ng-select2 [disabled]="formulaDisabled[i+1]" id="formula{{i}}"
+                                                [options]="options((i+1),1)" style="margin-top: 11px; margin-left: 4%;">
+                                            </ng-select2>
+
+                                            <ng-container *ngIf="selectedList2.length == (i+1)">
+                                                <button type="button" class="btn btn-success" style="margin-left: 1%;"
+                                                    (click)="createFormula()">
+                                                    <i class="fa fa-check-square-o"></i>
+                                                    Xác nhận</button>
+                                            </ng-container>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div (click)="checkToShowFormulaDetail(showFormulasDetail)" style="cursor: pointer;">
+                                <p style="font-size: 24px; display: inline;">Chi Tiết Các Công Thức </p>
+                                <i style="font-size:30px; transition: 0.3s;"
+                                    [ngStyle]="{transform: showFormulasDetail ? 'rotate(90deg)' : ''}"
+                                    class="fa fa-angle-double-right"></i>
+                            </div>
+                            <div *ngIf="showFormulasDetail" class="card">
+                                <div class="card-body">
+                                    <ng-container *ngFor="let cc of selectedList3; index as i">
+                                        <div class="row" (click)="activeSelect2Detail(i)">
+                                            <div style="padding-top: 15px;margin-left: 10px;margin-right: 5px; ">
+                                                {{cc.id}} =
+                                            </div>
+                                            <ng-select2 [disabled]="formulaDisabled2[i]" id="formula{{i}}"
+                                                [options]="options((i+1),2)" style="margin-top: 11px;">
+                                            </ng-select2>
+                                            <!-- <button type="button" class="btn btn-success" style="margin-left: 1%;"
+                                                (click)="createFormula2()">
+                                                <i class="fa fa-check-square-o"></i>
+                                                Xác nhận</button> -->
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <button mat-button matStepperPrevious class="btn btn-light">Quay Lại</button>
+                                <button mat-button class="btn btn-success" (click)="createSalaryFormula(stepper);">Tiếp
+                                    Tục</button>
+                            </div>
+                        </mat-step>
+
+                        <!-- step Kiểm thử -->
+                        <mat-step [completed]="checkStepperArr[2]">
+                            <ng-template matStepLabel>Kiểm Thử</ng-template>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fa fa-table"></i> THÔNG TIN LƯƠNG KIỂM THỬ
+                                    <button
+                                        style="border-radius: 6px; margin-left: 12%; padding: 10px; width: auto; float: right;"
+                                        class="btn btn-light" (click)="openCreateTestFieldsModal(testFields)">
+                                        THÊM DỮ LIỆU
+                                    </button>
+                                </div>
+                                <div class="card-body">
+                                    <!-- <div class="table-responsive">
+                                        <table id="datatable" class="table table-bordered">
+                                            <thead>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            <tfoot>
+                                            </tfoot>
+                                        </table>
+                                    </div> -->
+                                    <table class="table table-bordered" style="width: 1350px;
+                                    overflow-x: auto;
+                                    display: block;">
+                                        <thead>
+                                            <th>STT</th>
+                                            <ng-container *ngFor="let field of listField; index as i">
+                                                <th>{{field.Name}}</th>
+                                            </ng-container>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <ng-container *ngFor="let list of listTest; index as i">
+                                                <tr>
+                                                    <td>{{i+1}}</td>
+                                                    <ng-container *ngFor="let field of list; index as j">
+                                                        <td>{{util.commaForBigNum2(field.Value)}}</td>
+                                                    </ng-container>
+                                                    <td><i (click)="deleteListTest(i)"
+                                                            class="fa fa-trash fa-2x theme-red trigger-delete-button"></i>
+                                                    </td>
+                                                </tr>
+                                            </ng-container>
+                                        </tbody>
+                                        <tfoot>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <ng-template #testFields>
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Thêm Dữ Liệu Kiểm Thử</h5>
+                                        <button type="button" class="close" (click)="modalRef.hide()"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ng-container *ngFor="let field of listField; index as i">
+
+                                            <div *ngIf="i % 2 == 0" class="form-group" style="float: left; width: 49%;">
+                                                <label for="input-1">{{field.Name}}</label>
+                                                <input [(ngModel)]="field.Value" type="text" class="form-control"
+                                                    id="input-1">
+                                            </div>
+                                            <div *ngIf="i % 2 == 1" class="form-group"
+                                                style="float: left; width: 49%; margin-left: 2%;">
+                                                <label for="input-8">{{field.Name}}</label>
+                                                <input [(ngModel)]="field.Value" type="text" class="form-control"
+                                                    id="input-1">
+                                            </div>
+
+                                        </ng-container>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" (click)="modalRef.hide()">
+                                            <i class="fa fa-times"></i>
+                                            Hủy</button>
+                                        <button type="button" class="btn btn-success"
+                                            (click)="addListTest();modalRef.hide();">
+                                            <i class="fa fa-check-square-o"></i>
+                                            Xác nhận</button>
+                                    </div>
+                                </ng-template>
+                            </div>
+
+                            <div style="text-align: center; width: 100%; margin-bottom: 25px;">
+                                <button mat-button class="btn btn-info" (click)="checkFormula();">Kiểm Tra
+                                </button>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fa fa-table"></i> KẾT QUẢ KIỂM THỬ
+                                </div>
+                                <div class="card-body">
+                                    <!-- <div>
+                                        <table id="datatable2" class="table table-bordered">
+                                            <thead>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            <tfoot>
+                                            </tfoot>
+                                        </table>
+                                    </div> -->
+                                    <table class="table table-bordered" style="width: 1350px;
+                                    overflow-x: auto;
+                                    display: block;">
+                                        <thead>
+                                            <th>STT</th>
+                                            <ng-container *ngFor="let field of listResultTest[0]; index as i">
+                                                <th>{{field.Name}}</th>
+                                            </ng-container>
+                                        </thead>
+                                        <tbody>
+                                            <ng-container *ngFor="let list of listResultTest; index as i">
+                                                <tr>
+                                                    <td>{{i+1}}</td>
+                                                    <ng-container *ngFor="let field of list; index as j">
+                                                        <td>{{util.commaForBigNum2(field.Value)}}</td>
+                                                    </ng-container>
+                                                </tr>
+                                            </ng-container>
+                                        </tbody>
+                                        <tfoot>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div style="text-align: right;">
+                                <button mat-button matStepperPrevious class="btn btn-light">Quay Lại</button>
+                                <button mat-button class="btn btn-success" (click)="goForward(stepper);">Tiếp
+                                    Tục</button>
+                            </div>
+                        </mat-step>
+
+                        <!-- step Review -->
+                        <mat-step [completed]="checkStepperArr[3]">
+                            <ng-template matStepLabel>Xác nhận</ng-template>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group" style="float: left; width: 49%;">
+                                        <label for="input-1">Số hiệu</label>
+                                        <input [(ngModel)]="documentToCreate.Code" type="text" class="form-control"
+                                            id="input-1" disabled>
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%; margin-left: 2%;">
+                                        <label for="input-8">File quyết định</label>
+                                        <input value="{{(documentToCreate.file?.name || ' ')}}" class="form-control"
+                                            type="text" id="input-8" disabled>
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%;">
+                                        <label for="input-5">Ngày tính lương</label>
+                                        <input [(ngModel)]="documentToCreate.CloseDay" type="number"
+                                            class="form-control" id="input-5" disabled>
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%; margin-left: 2%;">
+                                        <label for="input-6">Hạn tính lương</label>
+                                        <input [(ngModel)]="documentToCreate.Deadline" type="number"
+                                            class="form-control" id="input-6" disabled>
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%;">
+                                        <label for="input-3">Ngày ký</label>
+                                        <input [(ngModel)]="documentToCreate.SignDate" type="text" class="form-control"
+                                            bsDatepicker [bsConfig]="{ 
+                                            isAnimated: true,
+                                            adaptivePosition: true,
+                                            dateInputFormat: 'DD/MM/YYYY', 
+                                            containerClass: 'theme-default'
+                                        }" disabled>
+                                    </div>
+                                    <div class="form-group" style="float: left; width: 49%; margin-left: 2%;">
+                                        <label for="input-4">Ngày áp dụng</label>
+                                        <input [(ngModel)]="documentToCreate.ApplyDate" type="text" class="form-control"
+                                            bsDatepicker [bsConfig]="{ 
+                                            isAnimated: true,
+                                            adaptivePosition: true,
+                                            dateInputFormat: 'DD/MM/YYYY', 
+                                            containerClass: 'theme-default'
+                                        }" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="input-7">Mô tả</label>
+                                        <div>
+                                            <textarea [(ngModel)]="documentToCreate.Description" rows="4"
+                                                class="form-control" id="input-7" style="width: 100%;" disabled>
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="input-7">Công thức</label>
+                                        <div>
+                                            <!-- <textarea [(ngModel)]="documentToCreate.FormulaReview" type="text"
+                                                class="form-control" id="input-1" disabled>
+                                            </textarea> -->
+                                            <table id="receiving-orderList-table-1" class="ast-table ast-largeTable">
+                                                <colgroup>
+                                                    <col style="width: 80%;">
+                                                    <col style="width: 20%;">
+                                                </colgroup>
+                                                <tr>
+                                                    <!-- <th style="text-align: left;">Tên</th>
+                                                    <th style="text-align: right;">Biểu Thức</th> -->
+                                                </tr>
+                                                <ng-container *ngFor="let cmp of fReview; index as indexId">
+                                                    <ng-container>
+                                                        <tr>
+                                                            <!-- <td [ngStyle]="{'background-color': (indexId % 2 == 0) ? '#435761':'#3a4b53'}"
+                                                                style="text-align: left;">{{cmp.Name}}</td> -->
+                                                            <td [ngStyle]="{'background-color': (indexId % 2 == 0) ? '#435761':'#3a4b53'}"
+                                                                style="text-align: left;">{{(cmp.Expression)}}</td>
+                                                        </tr>
+                                                    </ng-container>
+                                                </ng-container>
+                                                <ng-container *ngIf="fReview?.length == 0">
+                                                    <td colspan="5">Chưa có dữ liệu</td>
+                                                </ng-container>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <button mat-button matStepperPrevious class="btn btn-light">Quay Lại</button>
+                                <button mat-button class="btn btn-success" (click)="complete();">Hoàn Thành</button>
+                            </div>
+                        </mat-step>
+
+                    </mat-horizontal-stepper>
+                </div>
+                <!-- End Row-->
+
+                <!--End Dashboard Content-->
+                <!--start overlay-->
+                <div class="overlay toggle-menu"></div>
+                <!--end overlay-->
+
+            </div>
+            <!-- End container-fluid-->
+
+        </div>
+        <!--End content-wrapper-->
+        <!--Start Back To Top Button-->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!--End Back To Top Button-->
+
+
+    </div>
+    <!--End wrapper-->
+</body>
+
+</html>

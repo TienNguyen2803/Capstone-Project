@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body class="bg-theme bg-theme9">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <app-container h1_title='m1'></app-container>
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <!--Start Dashboard Content-->
+
+                <div class="row">
+
+                    <!-- Tạo nội dung vào đây -->
+                    <div class="ast-header" style="width: 100%; height: 115px;">
+                        <p style="margin-left: 32%; float: left; width: 22%; ">Chọn Tháng Năm</p>
+                        <p style="margin-left: 2% ;float: left; width: 43%;">Nhân viên</p>
+                        <select #pr (change)="setPayrollId(pr.value)" class="ast-input"
+                            style="margin-left: 30%; float: left; width: 16%;margin-right: 5%; ">
+                            <ng-container *ngFor="let payroll of payrolls; index as indexId">
+                                <option value="{{payroll.Id}}" style="background: rgb(255, 255, 255);">Tháng
+                                    {{payroll.Month}} Năm {{payroll.Year}}</option>
+                            </ng-container>
+                        </select>
+                        <select #ep (change)="setEmployeeId(ep.value)" class="ast-input"
+                            style="float: left; width: 18%;margin-right: 25%;">
+                            <ng-container *ngFor="let emp of employees; index as indexId">
+                                <option value="{{emp.Code}}" style="background: rgb(255, 255, 255);">{{emp.Fullname}}
+                                </option>
+                            </ng-container>
+                        </select>
+                        <button (click)="getPayslipByPayrollIdAndEmployeeId()" class="btn btn-light"
+                            style="margin-left: 45%;margin-top: 10px; padding: 10px;">
+                            Tra Cứu
+                        </button>
+                    </div>
+                    <div class="ast-body" style="padding-top: 50px;">
+                        <div class="ast-tableCover ast-clickable">
+                            <table id="receiving-orderList-table-1" class="ast-table ast-largeTable">
+                                <colgroup>
+                                    <col style="width: 80%;">
+                                    <col style="width: 20%;">
+                                </colgroup>
+                                <tr>
+                                    <th style="text-align: left;">THÀNH PHẦN TÍNH LƯƠNG</th>
+                                    <th style="text-align: right;">GIÁ TRỊ</th>
+                                </tr>
+                                <ng-container *ngFor="let cmp of formulasComponents; index as indexId">
+                                    <ng-container>
+                                        <tr>
+                                            <td [ngStyle]="{'background-color': (indexId % 2 == 0) ? '#435761':'#3a4b53'}"
+                                                style="text-align: left;">{{cmp.Name}}</td>
+                                            <td [ngStyle]="{'background-color': (indexId % 2 == 0) ? '#435761':'#3a4b53'}"
+                                                style="text-align: right;">{{util.commaForBigNum2(cmp.Value)}}</td>
+                                        </tr>
+                                    </ng-container>
+                                </ng-container>
+                                <ng-container *ngIf="formulasComponents?.length == 0">
+                                    <td colspan="5">Chưa có dữ liệu</td>
+                                </ng-container>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <!--End Row-->
+
+                <!--End Dashboard Content-->
+                <!--start overlay-->
+                <div class="overlay toggle-menu"></div>
+                <!--end overlay-->
+
+            </div>
+            <!-- End container-fluid-->
+
+        </div>
+        <!--End content-wrapper-->
+        <!--Start Back To Top Button-->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!--End Back To Top Button-->
+
+
+    </div>
+    <!--End wrapper-->
+
+</body>
+
+</html>

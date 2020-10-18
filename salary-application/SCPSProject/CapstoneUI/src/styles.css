@@ -1,0 +1,113 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import 'assets/css/component.css';
+.select2-results {
+    color: black !important;
+}
+
+.spcs[data-operator]::before {
+    position: absolute;
+    left: -20px;
+    font-weight: bold;
+    color: #000;
+}
+
+.spcs[data-operator="1"]::before {
+    content: "+";
+}
+
+.spcs[data-operator="2"]::before {
+    content: "-";
+}
+
+.spcs[data-operator="3"]::before {
+    content: "*";
+}
+
+.spcs[data-operator="4"]::before {
+    content: "/";
+}
+
+.spcs {
+    position: relative;
+    display: block;
+    float: left;
+    color: #000;
+}
+
+.spcs-aggregation[data-operator]::before {
+    position: absolute;
+    left: -20px;
+    font-weight: bold;
+    color: #000;
+    content: ", ";
+}
+
+.spcs-aggregation {
+    position: relative;
+    display: block;
+    float: left;
+    color: #000;
+}
+
+li.select2-selection__choice:not(:first-child) .spcs.active::before {
+    animation: editing 1.0s infinite;
+}
+
+li.select2-selection__choice:not(:first-child) {
+    margin-left: 14px;
+}
+
+@keyframes editing {
+    from {
+        text-decoration: underline;
+    }
+    to {
+        text-decoration: none;
+    }
+}
+
+.spcs-menu div ul {
+    padding-left: 0px;
+    list-style-type: none;
+    line-height: 2;
+}
+
+.spcs-menu>li.active>a {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.15);
+    border-left-color: #ffffff;
+}
+
+.spcs-menu div ul li {
+    font-size: 14px;
+}
+
+.spcs-menu div ul li a {
+    padding: 5px 5px 5px 30px;
+}
+
+.spcs-tabs {
+    border: 0;
+}
+
+.nav-justified {
+    border-bottom: 0 !important;
+}
+
+.mat-step-header .mat-step-label.mat-step-label-active {
+    color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.mat-step-header .mat-step-label, .mat-step-header .mat-step-optional {
+    color: rgba(255, 255, 255, 0.54) !important;
+}
+
+.modal-khoinkt {
+    margin-top: 5%;
+    max-width: 1000px;
+}
+
+.fa-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body class="bg-theme bg-theme9">
+
+    <!-- Start wrapper-->
+    <div id="wrapper">
+
+        <app-container h1_title='m2'></app-container>
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <!--Start Dashboard Content-->
+
+                <div class="row">
+                    <!-- Tạo nội dung vào đây -->
+                    <p style="margin-left: 30px; margin-top: 32px;width: 100%;font-size: 24px; color: whitesmoke;">
+                        <b>Chi tiết Quyết Định:</b> {{documentDetail.Code}}
+                    </p>
+                    <div class="row-body" style="margin-left: 2%; font-size: 16px;">
+                        <div style="float: left; width: 45%;">
+                            <h4 class="row-label" style="margin-top: 40px;">Ngày ký</h4>
+                            <p *ngIf="documentDetail.SignDate != null">{{util.formatDate(documentDetail.SignDate)}}</p>
+                            <h4 class="row-label" style="margin-top: 40px;">Ngày tính lương</h4>
+                            <p>Ngày {{documentDetail.CloseDay}} hàng tháng</p>
+                            <!-- show formula -->
+                            <h4 class="row-label" style="margin-top: 40px;">Công thức lương
+                            </h4>
+                            <ng-container *ngIf="documentDetail.Formula != null">
+                                <p title="documentDetail.Formula">{{documentDetail.Formula}}</p>
+                            </ng-container>
+                            <ng-container *ngIf="documentDetail.Formula == null">
+                                <p>Chưa có công thức lương tương ứng</p>
+                            </ng-container>
+                        </div>
+                        <div style="float: left; width: 52%;">
+
+                            <h4 class="row-label" style="margin-top: 40px;">Ngày áp dụng</h4>
+                            <p *ngIf="documentDetail.SignDate != null">{{util.formatDate(documentDetail.ApplyDate)}}</p>
+
+                            <h4 class="row-label" style="margin-top: 40px;">Hạn tính lương</h4>
+                            <p>Ngày {{documentDetail.Deadline}} hàng tháng</p>
+
+                            <h4 class="row-label" style="margin-top: 40px;">Mô tả</h4>
+
+                            <ng-container
+                                *ngIf="documentDetail.Description != null && documentDetail.Description != ''">
+                                <p>{{documentDetail.Description}}</p>
+                            </ng-container>
+                            <ng-container
+                                *ngIf="documentDetail.Description == null || documentDetail.Description == ''">
+                                <p>Chưa có mô tả</p>
+                            </ng-container>
+                        </div>
+
+                    </div>
+                </div>
+                <!--End Row-->
+                <!--End Dashboard Content-->
+                <!--start overlay-->
+                <div class="overlay toggle-menu"></div>
+                <!--end overlay-->
+
+            </div>
+            <!-- End container-fluid-->
+
+        </div>
+        <!--End content-wrapper-->
+        <!--Start Back To Top Button-->
+        <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+        <!--End Back To Top Button-->
+
+
+    </div>
+    <!--End wrapper-->
+
+</body>
+
+</html>

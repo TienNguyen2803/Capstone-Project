@@ -1,0 +1,12 @@
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\bin\Debug\netcoreapp2.2\BusinessLogic.deps.json
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\bin\Debug\netcoreapp2.2\BusinessLogic.dll
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\bin\Debug\netcoreapp2.2\BusinessLogic.pdb
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\bin\Debug\netcoreapp2.2\DataAccess.dll
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\bin\Debug\netcoreapp2.2\DataAccess.pdb
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\obj\Debug\netcoreapp2.2\BusinessLogic.csprojAssemblyReference.cache
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\obj\Debug\netcoreapp2.2\BusinessLogic.AssemblyInfoInputs.cache
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\obj\Debug\netcoreapp2.2\BusinessLogic.AssemblyInfo.cs
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\obj\Debug\netcoreapp2.2\BusinessLogic.csproj.CoreCompileInputs.cache
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\obj\Debug\netcoreapp2.2\BusinessLogic.csproj.CopyComplete
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\obj\Debug\netcoreapp2.2\BusinessLogic.dll
+D:\Capstone\salary-application\SCPSProject\BusinessLogic\obj\Debug\netcoreapp2.2\BusinessLogic.pdb

@@ -1,0 +1,194 @@
+@import '../../../assets/vendors/styles/ast-partial.css';
+@import '../../../assets/vendors/styles/ast-style.css';
+@import '../../../assets/vendors/styles/ast-theme.css';
+@import '../../../assets/vendors/styles/opensan.css';
+@import '../../../assets/css/component.css';
+body {
+    --header-height: 100px;
+    --header-width: var(--mainContent-widght);
+    --body-height: 400px;
+    --body-width: var(--mainContent-widght) - 200px;
+    --footer-height: calc(var(--mainContent-height) - var(--header-height) - var(--body-height));
+    --footer-width: var(--mainContent-widght);
+}
+
+.ast-header {
+    height: var(--header-height);
+    width: var(--header-width) + 20px;
+    margin: 0;
+}
+
+.ast-body {
+    height: var(--body-height);
+    width: var(--body-width) + 20px;
+    margin: 0;
+}
+
+.ast-footer {
+    height: var(--footer-height);
+    width: var(--footer-width) + 20px;
+}
+
+/* COMPONENT */
+
+.ast-tableCover {
+    height: calc(var(--body-height) - 30px);
+    width: calc(var(--body-width) + 80px);
+    margin: auto;
+    border-radius: 8px;
+    overflow: auto;
+    background-color: var(--color-l4);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ast-largeTable {
+    width: 100%;
+}
+
+.ast-pagination a {
+    padding: 9px 16px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* FUNCTION */
+
+#function-createOrder1 {
+    --content-height: 588px;
+    --content-width: 1280px;
+    --firstHalf-width: 800px;
+    --secondHalf-width: calc(var(--content-width) - var(--firstHalf-width));
+    --subHeader-height: 110px;
+    --subBody-height: calc(var(--content-height) - var(--subHeader-height))
+}
+
+#function-createOrder1 .ast-firstHalf {
+    height: inherit;
+    width: calc(var(--firstHalf-width) - 2px);
+    border-right: 2px dashed var(--color-d5);
+}
+
+#function-createOrder1 .ast-secondHalf {
+    height: inherit;
+    width: var(--seconHalf-width);
+}
+
+#function-createOrder1 .ast-firstHalf .ast-subHeader {
+    height: var(--subHeader-height);
+    width: var(--firstHalf-width);
+}
+
+#function-createOrder1 .ast-secondHalf .ast-subHeader {
+    height: var(--subHeader-height);
+    width: var(--secondHalf-width);
+}
+
+#function-createOrder1 .ast-subHeader h2 {
+    margin: 0;
+    padding: 10px 0 5px 30px;
+}
+
+#function-createOrder1 .ast-subHeader .ast-input {
+    margin-left: 30px;
+}
+
+#function-createOrder1 .ast-badge {
+    margin: auto;
+    width: 250px;
+    height: 25px;
+    font-size: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#function-createOrder1 .ast-subHeader p {
+    margin: 0;
+    margin: auto;
+    width: 420px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 2Opx;
+    font-style: italic;
+    font-weight: bolder;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+}
+
+#function-createOrder1 .ast-subBody {
+    height: var(--subBody-height);
+    overflow-y: scroll;
+}
+
+#function-createOrder1 .ast-firstHalf .ast-mediumTable {
+    width: calc(var(--firstHalf-width) - 60px);
+    margin: auto;
+}
+
+#function-createOrder1 .ast-secondHalf .ast-mediumTable {
+    width: calc(var(--secondHalf-width) - 60px);
+    margin: auto;
+}
+
+#function-createOrder2 {
+    --content-height: 608px;
+    --content-width: 1280px;
+    --subHeader-height: 110px;
+    --subBody-height: calc(var(--content-height) - var(--subHeader-height) - 20px)
+}
+
+#function-createOrder2 .ast-subHeader {
+    height: var(--subHeader-height);
+    width: var(--content-width);
+}
+
+#function-createOrder2 .ast-subBody {
+    height: var(--subBody-height);
+    width: var(--content-width);
+    overflow-y: scroll;
+}
+
+#function-createOrder2 .ast-largeTable {
+    width: calc(var(--content-width) - 60px);
+    margin: auto;
+}
+
+#function-createOrder2 .ast-subHeader h2 {
+    margin: 0;
+    padding: 10px 0 5px 30px;
+    float: left;
+}
+
+#function-createOrder2 .ast-badge {
+    float: right;
+    margin: 0;
+    margin-right: 30px;
+    width: 250px;
+    height: 25px;
+    font-size: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#function-createOrder2 .ast-subHeader p {
+    margin: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 30px;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: bolder;
+    text-align: center;
+    display: block;
+    max-width: calc(var(--content-width) - 60px);
+    overflow: hidden;
+}
+
+.input-formula {
+    width: 156px;
+    height: 20px;
+    font-size: 15px;
+    padding: 2px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}

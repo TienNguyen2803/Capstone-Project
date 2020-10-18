@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body class="bg-theme bg-theme9">
+
+    <div id="wrapper">
+
+        <app-container h1_title='m2'></app-container>
+
+        <div class="clearfix"></div>
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+
+                <!--Start Dashboard Content-->
+
+                <div id="createFormulaRow" class="row">
+                    <!-- Tạo nội dung vào đây -->
+                    Thực lãnh =
+                    <ng-select2 id="formula0" [width]="700" [options]="options(0)" (valueChanged)="triggerClick()">
+                    </ng-select2>
+                    <!-- <button type="button" class="btn btn-danger" (click)="tempModalRef.hide()">
+                        <i class="fa fa-times"></i>
+                        Hủy</button> -->
+                    <ng-container *ngIf="selectedList2.length == 0">
+                        <button type="button" class="btn btn-success" style="margin-left: 1%;"
+                            (click)="createSalaryFormula()">
+                            <i class="fa fa-check-square-o"></i>
+                            Xác nhận</button>
+                    </ng-container>
+
+                    <ng-container *ngFor="let cc of selectedList2; index as i">
+                        <!-- <app-create-formula index="{{i}}"></app-create-formula> -->
+                        <span id="tooltip{{i}}" class="tooltiptext"></span>
+                        <ng-select2 id="formula{{i}}" [width]="700" [options]="options((i+1))"
+                            (valueChanged)="triggerClick()" style="margin-top: 11px; margin-left: 4%;"></ng-select2>
+
+                        <ng-container *ngIf="selectedList2.length == (i+1)">
+                            <button type="button" class="btn btn-success" style="margin-left: 1%;"
+                                (click)="createFormula()">
+                                <i class="fa fa-check-square-o"></i>
+                                Xác nhận</button>
+                        </ng-container>
+                    </ng-container>
+                    <!-- <ng-select2 [data]="formulaComponents" [width]="1000" [options]="options(1)"
+                        (valueChanged)="triggerClick()"></ng-select2> -->
+                    <!-- <button style="border-radius: 6px; margin-left: 12%; padding: 10px; width: auto; float: right;"
+                        class="btn btn-light" (click)="openMenuModal(menu)">
+                        Form Mẫu
+                    </button> -->
+                </div>
+                <!--End Row-->
+
+                <!--End Dashboard Content-->
+                <!--start overlay-->
+                <div class="overlay toggle-menu"></div>
+                <!--end overlay-->
+
+            </div>
+            <!-- End container-fluid-->
+
+        </div>
+        <!--End content-wrapper-->
+
+    </div>
+    <!--End wrapper-->
+
+
+    <!-- <ng-template #createPair>
+        <div class="modal-header">
+            <h5 class="modal-title">Tính Năng</h5>
+            <button type="button" class="close" (click)="modalRef.hide()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="input-1">Tên viết tắt</label>
+                <input [(ngModel)]="refTable.Description" style="margin-left: 10px;padding: 5px;width: 180px;"
+                    type="text" placeholder="Mô tả">
+            </div>
+            <div class="form-group">
+                <label for="input-1">Tên viết tắt</label>
+                <input [(ngModel)]="refTable.Description" style="margin-left: 10px;padding: 5px;width: 180px;"
+                    type="text" placeholder="Mô tả">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="modalRef.hide()">
+                <i class="fa fa-times"></i>
+                Hủy</button>
+            <button type="button" class="btn btn-success" (click)="modalRef.hide()">
+                <i class="fa fa-check-square-o"></i>
+                Xác nhận</button>
+        </div>
+    </ng-template> -->
+
+</body>
+
+</html>

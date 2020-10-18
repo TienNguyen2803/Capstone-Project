@@ -1,0 +1,210 @@
+:host ::ng-deep .ck-editor__editable_inline {
+    height: 445px;
+    border: 1px solid #000000;
+}
+
+:host ::ng-deep #content {
+    padding: 75px 50px;
+    min-height: 100vh;
+}
+
+:host ::ng-deep #content #left-block {
+    text-align: center;
+}
+
+:host ::ng-deep #content #right-block .card-header {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 1px solid #000000;
+    border-radius: 0;
+}
+
+:host ::ng-deep #content .tool-block {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+:host ::ng-deep #content .block-1 {
+    justify-content: space-between;
+}
+
+:host ::ng-deep #content .tool-block button {
+    margin: 10px 0;
+    width: 45%;
+    overflow: hidden;
+    color: #ffffff;
+    font-size: 10px !important;
+    font-weight: 500;
+}
+
+:host ::ng-deep #content .tool-block label {
+    color: #ffffff;
+    font-size: 10px !important;
+    font-weight: 500;
+}
+
+:host ::ng-deep #content .block-2 button {
+    margin: 0;
+}
+
+:host ::ng-deep #content .block-2 button {
+    margin: 0;
+}
+
+:host ::ng-deep .input-block {
+    position: relative;
+}
+
+:host ::ng-deep .input-block i {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 48px;
+    height: 38px;
+    text-align: center;
+    line-height: 34.5px;
+    background-color: #ced4d3;
+    border-left: 1px solid #000000;
+}
+
+:host ::ng-deep .input-block input {
+    display: block;
+    padding-left: 15px;
+    padding-right: 60px;
+    margin: 0 !important;
+    width: 100%;
+    height: 40px !important;
+    border-radius: 0 !important;
+    border: 1px solid #000000 !important
+}
+
+:host ::ng-deep .input-block input::placeholder {
+    color: #000000;
+}
+
+:host ::ng-deep #select-block {
+    display: flex;
+    justify-content: space-between;
+}
+
+:host ::ng-deep #select-block select {
+    width: 40%;
+    border: 1px solid #ced4da;
+    color: #495057 !important;
+    background-color: #ffffff;
+}
+
+:host ::ng-deep #html-viewer {
+    height: 500px;
+    overflow-y: auto;
+}
+
+:host ::ng-deep #content .title {
+    margin-bottom: 25px;
+}
+
+:host ::ng-deep #exampleModal .modal-content {
+    background-color: #ffffff;
+    color: #000000 !important;
+}
+
+:host ::ng-deep #exampleModal .modal-header {
+    border-bottom: 1px solid #000000;
+}
+
+:host ::ng-deep #exampleModal .modal-header h5 {
+    color: #000000;
+}
+
+:host ::ng-deep #exampleModal .modal-footer {
+    border-top: 1px solid #000000;
+}
+
+:host ::ng-deep body {
+    background-image: linear-gradient(45deg, #29323c, #485563);
+}
+
+:host ::ng-deep .content-wrapper {
+    padding-bottom: 0px !important;
+}
+
+:host ::ng-deep .ck-content {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+:host ::ng-deep .ck-content span {
+    color: #000000;
+}
+
+:host ::ng-deep .ck-content table {
+    max-width: 100%;
+    width: auto;
+}
+
+:host ::ng-deep .ck-content table td {
+    min-width: 200px;
+}
+
+:host ::ng-deep .card .card-body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+:host ::ng-deep .card .card-header {
+    background-color: #ffffff;
+    color: #000000
+}
+
+:host ::ng-deep .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+:host ::ng-deep #panel {
+    visibility: hidden;
+}
+
+:host ::ng-deep .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+:host ::ng-deep .upload-btn-wrapper input[type=file] {
+    font-size: 10px;
+    position: absolute;
+    height: 30x;
+    margin-top: 15px;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+:host ::ng-deep form select {
+    font-size: 20px;
+    border: 1px solid #CCC;
+    min-height: 34px;
+    width: 40vh;
+    border-radius: 5px;
+}
+
+:host ::ng-deep form select option {
+    background-color: #9ca2a9;
+    border-radius: 5px;
+}
+
+
+/* CAUTION: Internet Explorer hackery ahead */
+
+ :host ::ng-deep form select::-ms-expand {
+    display: none;
+    /* Remove default arrow in Internet Explorer 10 and 11 */
+}

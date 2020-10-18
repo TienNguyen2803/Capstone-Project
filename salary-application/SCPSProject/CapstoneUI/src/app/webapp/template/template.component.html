@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NHAP HANG</title>
+    <script src="https://labs.textcontrol.com/widget/scripts/txtextcontrol.web.js"></script>
+    <style>
+        #html-viewer {
+            height: 500px;
+            width: 1000px;
+            overflow: scroll;
+        }
+        
+        #field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 300px;
+            width: 800px;
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <app-container h1_title='m6'></app-container>
+    <div class="content-wrapper">
+        <div class="container-fluid">
+
+            <!--Start Dashboard Content-->
+
+            <div class="row">
+                <div class="col-lg-12" style="background-color: #ffffff; padding: 25px 0">
+                    <div class="row">
+                        <div class="col-9" style="display: flex;flex-direction: column;align-items: flex-start;">
+                            <div id="editor">
+                                <tx-document-editor style="width: 1000px !important; margin-left: 30px;height: 700px !important;" webSocketURL="wss://demos.textcontrol.com/ws/api/TXWebSocket?authToken=12388-22132-12133" [documentTargetMarkers]="true">
+                                </tx-document-editor>
+                                <div class="tool">
+                                    <div>
+                                        <button (click)="onClickSave()" style="border-radius: 6px; margin-top: 36px;
+                                        padding: 10px;">Cập Nhật Phiếu Lương</button>
+                                    </div>
+                                    <div>
+                                        <select id="field-name" style="border-radius: 6px; margin-top: 36px;
+                                            padding: 10px;" value="name" (change)="onClickAddMergeField()">
+                                            <option style="background-color: #ffffff;" *ngFor="let value of listFields">{{value}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="html" style="visibility: hidden;margin-left:30px;">
+                                <div class="row">
+                                    <span><strong>  Tạo Phiếu Lương</strong></span>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div id="html-viewer"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="row"> <span class="label label-default"><strong>Danh sách đầu lương</strong></span><br></div>
+                                        <div class="row">
+                                            <div id="field" style="border-radius: 6px;visibility: hidden;" value="name">
+                                                <span class="draggable" *ngFor="let value of listFields">{{value}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <button (click)="SubmitFileHtml()" style="border-radius: 6px; margin-top: 36px;
+                                        padding: 10px;">Lưu Phiếu Lương </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3" style="display:flex; flex-direction: column;align-items: flex-start;">
+                            <span class="label label-default"><strong> Chọn Quyết Định</strong></span><br>
+                            <form [formGroup]="selectTemplateForm">
+                                <select formControlName="documentName" style="border-radius: 6px;  
+                                     padding: 10px;" (change)="changeDocument($event)">
+                                     <option style="background-color: #ffffff;">Chọn quyết định</option>option>
+                                      <option style="background-color: #ffffff;" *ngFor="let value of listDocument">{{value}}</option>
+                                    </select>
+                                <br>
+                            </form>
+                            <br>
+                            <div>
+                                <span class="label label-default"> <strong>  Tải lên mẫu phiếu lương</strong></span><br>
+                                <br>
+                                <div class="form-group">
+                                    <input type="file" name="image" (change)="fileProgress($event)" />
+                                </div>
+                                <div class="form-group">
+                                    <button (click)="onSubmitFile()" style="border-radius: 6px; margin-top: 36px;
+                                         ; padding: 10px;">Tải lên</button>
+                                </div>
+                                <br>
+                            </div>
+                            <br>
+                            <span class="label label-default"> <strong>  Chọn mẫu phiếu lương</strong> </span><br>
+                            <form [formGroup]="selectTemplateForm">
+
+                                <select id="select-spaylip" formControlName="name" style="border-radius: 6px; padding: 10px;" (change)="changeSuit($event)">
+                                    <option style="background-color: #ffffff;">Chọn Phiếu Lương</option>option>      
+                                    <option style="background-color: #ffffff;" *ngFor="let value of listNameTemplate" >
+                                               {{value.TemplateUrl}}
+                                          </option>
+                                        </select>
+                                <br>
+                            </form>
+                            <button id="btnCreate" (click)="LoadTemplateHtml()" style="border-radius: 6px; margin-top: 36px;
+                                              ; padding: 10px;">Tạo mẫu mới </button>
+                            <button (click)="LoadTemplateTxt()" id="btnBack" style="border-radius: 6px; margin-top: 36px;
+                                               visibility: hidden;;; padding: 10px;">Quay Lại </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
